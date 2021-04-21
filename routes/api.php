@@ -6,7 +6,7 @@ Route::post('fazer-login','Auth\LoginController@login');
 
 Route::get('boletim/{id}','PerfilController@boletim');
 
-Route::get('boletim','PerfilController@boletim');
+Route::get('boletim','PerfilController@boletim')->name('boletim');
 
 
 

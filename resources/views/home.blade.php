@@ -54,7 +54,7 @@
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center"><a href="http://localhost:8000/api/boletim">Boletim do Aluno</a></h5>
+            <h5 class="center"><a href="{{route('boletim')}}">Boletim do Aluno</a></h5>
 
             <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
           </div>

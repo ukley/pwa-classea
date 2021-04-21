@@ -11,12 +11,9 @@ class HomeController extends Controller
 public function index(){
   
         $client = new \GuzzleHttp\Client();
-        $response = $client->request('GET', 'https://colegioclassea.com.br/centro/wp-json/wp/v2/posts?categories=11');
-
+        $response = $client->request('GET', 'https://colegioclassea.com.br/centro/wp-json/wp/v2/posts?categories=11');        
         $body=$response->getBody(); 
-
         $posts = json_decode(($body)->getContents());
-
         return view('comunicados.index',compact('posts'));
     }
 
