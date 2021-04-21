@@ -12,5 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
+
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
+
+Route::get('/comunicados','HomeController@index');
+
+Route::get('materiais-centro','HomeController@materiaisCentro');
+
+Route::get('materiais-eletro','HomeController@materiaisEletro');
+
+Route::get('/comunicados/{id}','HomeController@show')->name('comunicado');
+
+
+
