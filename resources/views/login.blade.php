@@ -49,10 +49,12 @@
     </div>
    
 </div><!--row-->
+        <div class="input-field col s12 m12">
 
  <button class="btn waves-effect waves-light center" type="submit">Iniciar
     <i class="fa fa-sign-in right"></i>
   </button>
+  </div>
 </div>
 
   </form>
