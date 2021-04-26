@@ -11,13 +11,13 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('login');
-});*/
-
-Route::get('/', function () {
+Route::get('home', function () {
     return view('home');
 })->name('home');
+
+Route::get('/', function () {
+    return view('login');
+});
 
 Route::get('/comunicados','HomeController@index');
 

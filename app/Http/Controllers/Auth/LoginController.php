@@ -3,46 +3,46 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Api\BaseController as BaseController;
-
 use Illuminate\Http\Request;
-use DB,Response;
-use Exception;
+use Illuminate\Support\Facades\Auth;
+
+use DB;
+use Illuminate\Support\Facades\Cookie;
 
 class LoginController extends Controller
 {
      
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
-    }
+       
+    } 
 
     function login(Request $request) {
 
- 
-        $login=$request->input('login');
-        $senha=$request->input('senha');
+        $client = new \GuzzleHttp\Client(['base_uri' => 'http://localhost:9090']);       
+       
+        $response=$client->request('POST', '/login', [
+            'form_params' => [
+                //'login' => 'cunha',
+                //'senha' => '58996540072'
+                'login' => $request->input('login'),
+                'senha' => $request->input('senha')
+            ]
+        ]);                   
+        
+        $data = json_decode($response->getBody(), true); // returns an array
+       
 
-        try{
- 
-        //$s=sha1($senha);
- 
-        //$foo=app('db')->connection('mysql')->select("SELECT * FROM estudantes WHERE login = '$login' && senha = '$s' && ativo = 's'");
- 
-        $foo=DB::connection('mysql_sistema')->select("SELECT m.idRegistro,m.idEstudante,m.idEscola,m.idSerie,m.idTurma,m.turno,m.ano,e.cpfResponsavel FROM estudantes e 
-               INNER JOIN matricula m On m.idEstudante=e.idEstudante WHERE e.cpfResponsavel = $login && m.idRegistro=$senha && m.ano='2019'");
-        }catch(Exception $e){
-            return $e->getMessage();
-        }
-            if(empty($foo)){
-                return response()->json('Matricula ou senha invalida.');
-            };
-                         
-            //return $this->mostraPerfil($foo[0]->idRegistro);
-            return response()->json($foo);
-
-       }
+        if(($data['auth']))
+        {
+            setcookie("token", $data['token']);  
+            setcookie("matricula", $data['matricula']);       
+          
+        }        
+        return view('home');
+                           
+    }
 
        public function mostraPerfil($id){
            
@@ -53,15 +53,15 @@ class LoginController extends Controller
 			INNER JOIN escolas e ON m.idEscola=e.idEscola
             WHERE m.ano=2019 && m.idRegistro=$id");       
             
-            //return $this->setCookie($result);            
+            $nome="ZukamBerg";
+            $matricula="9988873232";
+
+            dd(Cookie($nome,$matricula,true,10));
+
             
             return $this->sendResponse($result, 'Login com sucesso.'); 
        }
-
-       public function setCookie($result){
-             
-        //return $request->cookie('nome');
-     }
+      
 
 
        public function sendResponse($result,$message)
@@ -93,5 +93,8 @@ class LoginController extends Controller
 
         return response()->json($response,$code);
     }    
-    
-}
+
+    function isMobile() {
+    }  
+        
+    }

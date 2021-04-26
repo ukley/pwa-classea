@@ -41,19 +41,15 @@
     </div></li>
     <li><a href="#!"><i class="material-icons">cloud</i>Principal</a></li>
     <li><a href="{{route('home')}}">Home</a></li>
-        <li><a href="{{route('home')}}">Boletim Escolar</a></li>
+    <li><a href="{{route('boletim')}}">Boletim Escolar</a></li>
+    <li><a class="waves-effect" href="#!">Logout</a></li>
 
-    <li><a class="waves-effect" href="#!">Perfil Aluno</a></li>
   </ul>
   <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
 
         @yield('content')        
-
-
-
- 
 
 
   <!--  Scripts-->

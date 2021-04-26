@@ -30,30 +30,33 @@
 
 		<h4 class="center"> Colégio Classe A</h4>	 
 <div class="row">
-  <form class="col s12 m12">
+  <form class="col s12 m12" action="{{route('login')}}" method="POST">
     <div class="row">
       <div class="input-field col s12 m12">
         <i class="mdi-action-account-circle prefix"></i>
-        <input id="icon_prefix" type="text" class="validate">
-        <label for="icon_prefix">Matrícula</label>
+        <input id="icon_prefix" type="text" name="login" class="validate">
+        <label for="icon_prefix">Login</label>
       </div>
       
     
         <div class="input-field col s12 m12">
         <i class="fa fa-unlock-alt prefix"></i>
-        <input id="icon_password" type="password" class="validate">
+        <input id="icon_password" type="password" name="senha" class="validate">
         <label for="icon_password">Senha</label>
       </div>
     
         
     </div>
-  </form>
    
 </div><!--row-->
- <button class="btn waves-effect waves-light center" type="submit" name="action">Iniciar
+
+ <button class="btn waves-effect waves-light center" type="submit">Iniciar
     <i class="fa fa-sign-in right"></i>
   </button>
-</div><!--card-->
+</div>
+
+  </form>
+
 
 
 </div><!--col-->

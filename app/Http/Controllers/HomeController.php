@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Http;
 
 class HomeController extends Controller
 {
-
-public function index(){
+    
+    public function index(){
   
         $client = new \GuzzleHttp\Client();
         $response = $client->request('GET', 'https://colegioclassea.com.br/centro/wp-json/wp/v2/posts?categories=11');        
@@ -35,6 +34,5 @@ public function materiaisEletro()
 {
     return redirect()->away('https://materiais.colegioclassea.com.br/materiais-eletro');
 }
-
 
 }
