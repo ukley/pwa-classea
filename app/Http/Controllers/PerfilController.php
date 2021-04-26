@@ -31,10 +31,10 @@ class PerfilController extends Controller
         INNER JOIN series s ON m.idSerie=s.idSerie
         INNER JOIN turmas t ON m.idTurma=t.idTurma
         INNER JOIN escolas e ON m.idEscola=e.idEscola
-        WHERE estudantes.cpf=58996540072");
+        WHERE m.idMatricula=58996540072");
         dd($bol);*/
 
-        $client = new \GuzzleHttp\Client(['base_uri' => 'http://localhost:9090']);       
+        $client = new \GuzzleHttp\Client(['base_uri' => 'https://sheltered-waters-76573.herokuapp.com/']);       
        
         $response=$client->request('POST', '/boletim', [
             'form_params' => [
