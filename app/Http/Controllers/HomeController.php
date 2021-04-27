@@ -8,6 +8,12 @@ class HomeController extends Controller
 {
     
     public function index(){
+        $detect = new \Mobile_Detect;
+
+        if ( $detect->isMobile() ) {
+            return "Acesso somente mobile";
+        }
+
   
         $client = new \GuzzleHttp\Client();
         $response = $client->request('GET', 'https://colegioclassea.com.br/centro/wp-json/wp/v2/posts?categories=11');        

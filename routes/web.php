@@ -15,9 +15,7 @@ Route::get('home', function () {
     return view('home');
 })->name('home');
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::get('/','Auth\LoginController@appLogin');
 
 Route::get('/comunicados','HomeController@index');
 

@@ -3,22 +3,41 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Api\BaseController as BaseController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
 use DB;
-use Illuminate\Support\Facades\Cookie;
 
 class LoginController extends Controller
 {
      
-    public function __construct()
-    {
-       
-    } 
 
-    function login(Request $request) {
+
+    public function appLogin(){
+        $detect = new \Mobile_Detect; //criando uma nova instância de Mobile_Detect
+
+        if ($detect->isMobile())  //se o dispositivo é um dispositivo móvel
+        {
+            if ($detect->is('iphone')) //se o dispositivo for um iPhone
+            {
+                return view('login');
+            }
+            if ($detect->is('ipad')) //se o dispositivo for um iPad
+            {
+                return view('login');
+            }
+            if ($detect->is('android')) //se o dispositivo for um Android
+            {
+                return view('login');
+            }
+        }
+        else //senão
+        {
+            print 'Você não está usando um dispositivo móvel'; //imprima "Você não está utilizando um dispositivo móvel"
+        }
+
+
+    }
+
+    public function login(Request $request) {
 
         $client = new \GuzzleHttp\Client(['base_uri' => 'http://localhost:9090']);       
        
@@ -51,18 +70,11 @@ class LoginController extends Controller
 			INNER JOIN series s ON m.idSerie=s.idSerie
 			INNER JOIN turmas t ON m.idTurma=t.idTurma
 			INNER JOIN escolas e ON m.idEscola=e.idEscola
-            WHERE m.ano=2019 && m.idRegistro=$id");       
-            
-            $nome="ZukamBerg";
-            $matricula="9988873232";
-
-            dd(Cookie($nome,$matricula,true,10));
-
-            
+            WHERE m.ano=2019 && m.idRegistro=$id");                 
+                             
             return $this->sendResponse($result, 'Login com sucesso.'); 
        }
       
-
 
        public function sendResponse($result,$message)
        {
