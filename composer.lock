@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf01991503e78d2d63599e0e4f31eeef",
+    "content-hash": "4a6c0e9a5dfa6ec0cdefa2f5e00916e1",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1820,16 +1820,16 @@
         },
         {
             "name": "silviolleite/laravelpwa",
-            "version": "1.0.4",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silviolleite/laravel-pwa.git",
-                "reference": "4951f0d47b6943d9823e3c27d35b74016d99d735"
+                "reference": "5f7135d2ee870af01793c9fdf6b1b932b546e20e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silviolleite/laravel-pwa/zipball/4951f0d47b6943d9823e3c27d35b74016d99d735",
-                "reference": "4951f0d47b6943d9823e3c27d35b74016d99d735",
+                "url": "https://api.github.com/repos/silviolleite/laravel-pwa/zipball/5f7135d2ee870af01793c9fdf6b1b932b546e20e",
+                "reference": "5f7135d2ee870af01793c9fdf6b1b932b546e20e",
                 "shasum": ""
             },
             "type": "library",
@@ -1862,7 +1862,7 @@
                 "progressive web apps",
                 "pwa"
             ],
-            "time": "2019-04-03T11:23:08+00:00"
+            "time": "2020-08-20T12:19:16+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
