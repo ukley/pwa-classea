@@ -12,26 +12,16 @@ class LoginController extends Controller
 
 
     public function appLogin(){
-        $detect = new \Mobile_Detect; //criando uma nova instância de Mobile_Detect
+        $detect = new \Mobile_Detect; 
 
-        if ($detect->isMobile())  //se o dispositivo é um dispositivo móvel
-        {
-            if ($detect->is('iphone')) //se o dispositivo for um iPhone
-            {
+        if ($detect->isMobile())  
+        {           
                 return view('login');
-            }
-            if ($detect->is('ipad')) //se o dispositivo for um iPad
-            {
-                return view('login');
-            }
-            if ($detect->is('android')) //se o dispositivo for um Android
-            {
-                return view('login');
-            }
+            
         }
-        else //senão
+        else 
         {
-            print 'Você não está usando um dispositivo móvel'; //imprima "Você não está utilizando um dispositivo móvel"
+            return 'Você não está usando um dispositivo móvel'; //imprima "Você não está utilizando um dispositivo móvel"
         }
 
 
